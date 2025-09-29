@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gefeliciteerd Schatje!</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f2dcdd;
+        color: #333;
+        text-align: center;
+      }
+      h1 {
+        color: #DE4C8A;
+        font-size: 3rem;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 1rem;
+        font-style: italic;
+      }
+      .message {
+        margin: 30px auto;
+        max-width: 800px;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+
+      /* Slideshow styling */
+      #slideshow {
+        margin: 40px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 15px;
+        border-radius: 15px;
+        max-width: 95vw;
+      }
+      #slideshow img {
+        max-width: 90vw;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 10px;
+        border: 5px solid #DE4C8A;
+      }
+      #slideshow button {
+        font-size: 3rem;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        color: #DE4C8A;
+        transition: transform 0.2s ease;
+      }
+      #slideshow button:hover {
+        transform: scale(1.2);
+      }
+
+      /* Audio player styling */
+      .audio-player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 20px auto;
+        padding: 10px;
+        border: 3px solid #DE4C8A;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.8);
+        max-width: 400px;
+      }
+      .audio-player button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .audio-player img {
+        width: 50px;
+        height: 50px;
+      }
+      #seekBar {
+        flex: 1;
+        appearance: none;
+        height: 8px;
+        border-radius: 5px;
+        background: #f2dcdd;
+        outline: none;
+      }
+      #seekBar::-webkit-slider-thumb {
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #DE4C8A;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>GEFELICITEERD, SCHATJE! &hearts;</h1>
+    <p style="font-size: 1.2rem; color: #DE4C8A;">Je hebt de puzzel opgelost!</p>
+    <div class="message">
+      <p>
+        <b>Liefste Anouk,</b><br><br>
+        Vanaf de eerste dag dat ik je zag, wist ik dat er iets bijzonders aan de hand was. Nu, een jaar later, zijn we hier en ik ben nog verliefder dan toen. Je bent de zon in mijn leven, de lach in mijn dag, en de beste partner die ik me kan wensen.
+        <br><br>
+        Bedankt voor elk moment, elke grap, elke knuffel. Dit is nog maar het begin.
+        <br><br>
+        Ik hou van jou, voor altijd.
+        <br><br>
+        <b>Rafi</b>
+      </p>
+    </div>
+
+    <!-- Slideshow -->
+    <div id="slideshow">
+      <button onclick="prevImage()">&#8592;</button>
+      <img id="slide" src="/IMG_1537.JPG" alt="Slideshow image">
+      <button onclick="nextImage()">&#8594;</button>
+    </div>
+
+    <!-- Custom audio player -->
+    <div class="audio-player">
+      <button id="playPause">
+        <img src="/play.png" id="playIcon" alt="Play">
+      </button>
+      <input type="range" id="seekBar" value="0" step="1">
+    </div>
+
+    <audio id="audio">
+      <source src="/recording.mp4" type="audio/mp3">
+    </audio>
+
+    <script>
+      // Slideshow
+      const images = [
+        "/IMG_3803.JPG","/IMG_3804.JPG","/IMG_3805.JPG","/IMG_3806.JPG",
+        "/IMG_3807.JPG","/IMG_3808.JPG","/IMG_3809.JPG","/IMG_3810.JPG",
+        "/IMG_2575.JPG","/IMG_2574.JPG","/IMG_2544.JPG","/IMG_2316.png",
+        "/IMG_2301.JPG","/IMG_2300.JPG","/IMG_2257.JPG","/IMG_2222.JPG",
+        "/IMG_2221.JPG","/IMG_1576.JPG","/IMG_1575.JPG","/IMG_1543.JPG",
+        "/IMG_1542.JPG","/IMG_1541.JPG","/IMG_1540.JPG","/IMG_1539.JPG",
+        "/IMG_1538.JPG","/IMG_1537.JPG","/IMG_1536.JPG","/IMG_1535.JPG",
+        "/IMG_1534.JPG","/IMG_1533.JPG","/IMG_1532.JPG","/IMG_1531.JPG",
+        "/IMG_1530.JPG","/IMG_1528.JPG","/IMG_1517.JPG",
+        "/c76b2496-1ce6-4f7c-8d48-4ee9be82b9ab.jpg",
+        "/ba531042-251a-44d5-859d-70e19ba7e2c3.jpg",
+        "/2411955F-48C8-4A38-B333-9DA3F22DA504.jpg",
+        "/4516e0a0-a156-43e4-bd5c-d7ba630f20b4.jpg",
+        "/970aca3a-384b-483a-8d1c-41d57b28d538.jpg",
+        "/884eb655-83de-469b-a1ae-34a72f5f514f.jpg",
+        "/799a0081-e8be-420f-8d8a-cb402b44da38.jpg",
+        "/17dda1d8-600f-4e55-b98c-c8de9f4077a7.jpg"
+      ];
+      let current = 0;
+      function showImage(index) {
+        document.getElementById("slide").src = images[index];
+      }
+      function nextImage() {
+        current = (current + 1) % images.length;
+        showImage(current);
+      }
+      function prevImage() {
+        current = (current - 1 + images.length) % images.length;
+        showImage(current);
+      }
+
+      // Audio controls
+      const audio = document.getElementById("audio");
+      const playPauseBtn = document.getElementById("playPause");
+      const playIcon = document.getElementById("playIcon");
+      const seekBar = document.getElementById("seekBar");
+
+      playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playIcon.src = "/pause.png"; // zorg dat je ook een pause-icon hebt
+        } else {
+          audio.pause();
+          playIcon.src = "/play.png";
+        }
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        seekBar.value = (audio.currentTime / audio.duration) * 100;
+      });
+
+      seekBar.addEventListener("input", () => {
+        audio.currentTime = (seekBar.value / 100) * audio.duration;
+      });
+    </script>
+  </body>
+</html>
