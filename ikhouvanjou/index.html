@@ -15,7 +15,7 @@
       }
       h1 {
         color: #DE4C8A;
-        font-size: 3rem;
+        font-size: 2.5rem; /* Mobiel-geoptimaliseerd */
         margin-top: 20px;
         font-weight: bold;
       }
@@ -26,39 +26,43 @@
       .message {
         margin: 30px auto;
         max-width: 800px;
-        font-size: 1.2rem;
-        line-height: 1.6rem;
+        font-size: 1.1rem; /* Mobiel-geoptimaliseerd */
+        line-height: 1.5rem; /* Mobiel-geoptimaliseerd */
+        padding: 0 15px; /* Zorgt voor marge aan de zijkanten op mobiel */
       }
 
       /* Slideshow styling */
       #slideshow {
-        margin: 40px auto;
+        margin: 20px auto; /* Mobiel-geoptimaliseerd */
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 10px; /* Minder ruimte op mobiel */
         background: rgba(255, 255, 255, 0.7);
-        padding: 15px;
+        padding: 10px; /* Minder padding op mobiel */
         border-radius: 15px;
         max-width: 95vw;
       }
       #slideshow img {
-        max-width: 90vw;
-        max-height: 80vh;
+        max-width: calc(95vw - 80px); /* Ruimte vrijhouden voor de knoppen */
+        max-height: 60vh; /* Iets lagere max-hoogte op mobiel */
+        width: auto;
+        height: auto;
         object-fit: contain;
         border-radius: 10px;
         border: 5px solid #DE4C8A;
       }
       #slideshow button {
-        font-size: 3rem;
+        font-size: 2rem; /* Kleinere knoppen op mobiel */
         cursor: pointer;
         background: transparent;
         border: none;
         color: #DE4C8A;
         transition: transform 0.2s ease;
+        padding: 10px; /* Groter klikgebied op mobiel */
       }
       #slideshow button:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
 
       /* Audio player styling */
@@ -72,7 +76,7 @@
         border: 3px solid #DE4C8A;
         border-radius: 12px;
         background: rgba(255,255,255,0.8);
-        max-width: 400px;
+        max-width: 90vw; /* Past zich aan de schermbreedte aan */
       }
       .audio-player button {
         background: none;
@@ -80,8 +84,8 @@
         cursor: pointer;
       }
       .audio-player img {
-        width: 50px;
-        height: 50px;
+        width: 40px; /* Kleinere icons op mobiel */
+        height: 40px;
       }
       #seekBar {
         flex: 1;
@@ -98,6 +102,38 @@
         border-radius: 50%;
         background: #DE4C8A;
         cursor: pointer;
+      }
+
+      /* Media Query voor desktop/grotere schermen */
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 3rem;
+        }
+        .message {
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          padding: 0;
+        }
+        #slideshow {
+          margin: 40px auto;
+          gap: 20px;
+          padding: 15px;
+        }
+        #slideshow img {
+          max-width: 90vw;
+          max-height: 80vh;
+        }
+        #slideshow button {
+          font-size: 3rem;
+          padding: 0;
+        }
+        .audio-player img {
+          width: 50px;
+          height: 50px;
+        }
+        .audio-player {
+          max-width: 400px;
+        }
       }
     </style>
   </head>
@@ -118,14 +154,12 @@
       </p>
     </div>
 
-    <!-- Slideshow -->
     <div id="slideshow">
       <button onclick="prevImage()">&#8592;</button>
       <img id="slide" src="/IMG_1537.JPG" alt="Slideshow image">
       <button onclick="nextImage()">&#8594;</button>
     </div>
 
-    <!-- Custom audio player -->
     <div class="audio-player">
       <button id="playPause">
         <img src="/play.png" id="playIcon" alt="Play">
