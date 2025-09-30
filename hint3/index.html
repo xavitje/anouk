@@ -15,34 +15,45 @@
     background: #f2dcdd;
     color: #333;
   }
-    h1 {
-        font-size: 2.5rem;
-        text-align: center;
-        padding-bottom: 0%;
-        font: bold;
-        
-    }
-    p {
-        font-size: 1rem;
-        text-align: center;
-        padding-top: 0%;
-        font-style: italic;
-    }
-    div {
-        margin-top: 10%;
-        text-align: center;
-    }
-    input {
-        margin-top: 0%;
-        padding: 10px;
-        font-size: 1rem;
-        border: 2px solid #DE4C8A;
-        border-radius: 5px;
-    }
-    button {
+  h1 {
+      font-size: 2.5rem;
       text-align: center;
-      border-radius: 8px;
+      padding-bottom: 0%;
+      font-weight: bold;
+      color:#DE4C8A;
+      display: inline-flexbox;
+      animation: pulse 1.5s infinite alternate;
+  }
+  p {
+      font-size: 1rem;
+      text-align: center;
+      padding-top: 0%;
+      font-style: italic;
+  }
+  div {
+      margin-top: 10%;
+      text-align: center;
+  }
+  input {
+      margin-top: 0%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #DE4C8A;
+      border-radius: 5px;
+  }
+  button {
+    text-align: center;
+    border-radius: 8px;
+  }
+  @keyframes pulse {
+    from {
+      transform: scale(1);
     }
+    to {
+      transform: scale(0.95); /* Slightly smaller */
+      text-shadow: 0 0 8px rgba(222, 76, 138, 0.6); /* Adds a subtle glow */
+    }
+  }
 
 </style>
 <body>
@@ -53,7 +64,7 @@
   </script>
 
   <div>
-      <h1 style="color:#DE4C8A;">Ik hou van Jou &heartsuit;</h1>
+      <h1>Ik hou van Jou &heartsuit;</h1>
       <b><p id="demo" style="color:#DE4C8A;">Originele datum dat jij mijn vriendin moest zijn ?</p>
       <p style="font-size: x-small;" style="color: #333;">datum (dd-mm-yyyy)</p></b>
       <button onclick="goBack()">terug</button>

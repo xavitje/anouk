@@ -14,10 +14,13 @@
         text-align: center;
       }
       h1 {
-        color: #DE4C8A;
-        font-size: 2.5rem; /* Mobiel-geoptimaliseerd */
-        margin-top: 20px;
+        font-size: 2.5rem;
+        text-align: center;
+        padding-bottom: 0%;
         font-weight: bold;
+        color:#DE4C8A;
+        display: inline-flexbox;
+        animation: pulse 1.5s infinite alternate;
       }
       h4 {
         color: #DE4C8A;
@@ -141,6 +144,15 @@
           max-width: 400px;
         }
       }
+      @keyframes pulse {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(0.95); /* Slightly smaller */
+        text-shadow: 0 0 8px rgba(222, 76, 138, 0.6); /* Adds a subtle glow */
+      }
+    }
     </style>
   </head>
 
@@ -177,8 +189,6 @@
       <input type="range" id="seekBar" value="0" step="1">
     </div>
 
-    
-
     <audio id="audio" src="/recording.mp4" preload="auto">
       Uw browser ondersteunt het audio-element niet.
     </audio>
@@ -186,23 +196,27 @@
     <script>
       // Slideshow
       let images = [
-        "/IMG_3803.JPG","/IMG_3804.JPG","/IMG_3805.JPG","/IMG_3806.JPG",
-        "/IMG_3807.JPG","/IMG_3808.JPG","/IMG_3809.JPG","/IMG_3810.JPG",
-        "/IMG_2575.JPG","/IMG_2574.JPG","/IMG_2544.JPG","/IMG_2316.png",
-        "/IMG_2301.JPG","/IMG_2300.JPG","/IMG_2257.JPG","/IMG_2222.JPG",
-        "/IMG_2221.JPG","/IMG_1576.JPG","/IMG_1575.JPG","/IMG_1543.JPG",
-        "/IMG_1542.JPG","/IMG_1541.JPG","/IMG_1540.JPG","/IMG_1539.JPG",
-        "/IMG_1538.JPG","/IMG_1537.JPG","/IMG_1536.JPG","/IMG_1535.JPG",
-        "/IMG_1534.JPG","/IMG_1533.JPG","/IMG_1532.JPG","/IMG_1531.JPG",
-        "/IMG_1530.JPG","/IMG_1528.JPG","/IMG_1517.JPG",
-        "/c76b2496-1ce6-4f7c-8d48-4ee9be82b9ab.jpg",
-        "/ba531042-251a-44d5-859d-70e19ba7e2c3.jpg",
-        "/2411955F-48C8-4A38-B333-9DA3F22DA504.jpg",
-        "/4516e0a0-a156-43e4-bd5c-d7ba630f20b4.jpg",
-        "/970aca3a-384b-483a-8d1c-41d57b28d538.jpg",
-        "/884eb655-83de-469b-a1ae-34a72f5f514f.jpg",
-        "/799a0081-e8be-420f-8d8a-cb402b44da38.jpg",
-        "/17dda1d8-600f-4e55-b98c-c8de9f4077a7.jpg"
+        "/970aca3a-384b-483a-8d1c-41d57b28d538.jpg", "/884eb655-83de-469b-a1ae-34a72f5f514f.jpg", "/799a0081-e8be-420f-8d8a-cb402b44da38.jpg", "/17dda1d8-600f-4e55-b98c-c8de9f4077a7.jpg", 
+        "/c76b2496-1ce6-4f7c-8d48-4ee9be82b9ab.jpg", "/ba531042-251a-44d5-859d-70e19ba7e2c3.jpg", "/2411955F-48C8-4A38-B333-9DA3F22DA504.jpg", "/4516e0a0-a156-43e4-bd5c-d7ba630f20b4.jpg", 
+        "/IMG_1646.jpg", "/IMG_1641.jpg", "/IMG_1577.jpg", "/IMG_1517.JPG", 
+        "/IMG_1827.jpg", "/IMG_1715.jpg", "/IMG_1668.jpg", "/IMG_1663.jpg", 
+        "/IMG_3293.jpg", "/IMG_2574.JPG", "/IMG_2222.JPG", "/IMG_2221.JPG", 
+        "/IMG_3756.jpg", "/IMG_3752.jpg", "/IMG_3359.jpg", "/IMG_3294.jpg", 
+        "/IMG_3810.JPG", "/IMG_3809.JPG", "/IMG_3805.JPG", "/IMG_3758.jpg", 
+        "/SNAP_20241012-212006.jpg", "/SNAP_20241012-211953.jpg", "/SNAP_20241008-162804.jpg", "/SNAP_20241005-191341.jpg", 
+        "/SNAP_20241019-133559.jpg", "/SNAP_20241015-173250.jpg", "/SNAP_20241013-172026.jpg", "/SNAP_20241012-215018.jpg", 
+        "/SNAP_20241022-171640.jpg", "/SNAP_20241019-211028.jpg", "/SNAP_20241019-143721.jpg", "/SNAP_20241019-143438.jpg", 
+        "/SNAP_20241024-154201.jpg", "/SNAP_20241023-192641.jpg", "/SNAP_20241022-212107.jpg", "/SNAP_20241022-211025.jpg", 
+        "/SNAP_20241102-195320.jpg", "/SNAP_20241102-193851.jpg", "/SNAP_20241102-193833.jpg", "/SNAP_20241027-144844.jpg", 
+        "/SNAP_20250202-173305.jpg", "/SNAP_20241226-122831.jpg", "/SNAP_20241208-220151.jpg", "/SNAP_20241129-205141.jpg", 
+        "/SNAP_20250416-193800.jpg", "/SNAP_20250416-191710.jpg", "/SNAP_20250408-210148.jpg", "/SNAP_20250202-173359.jpg", 
+        "/SNAP_20250428-212228.jpg", "/SNAP_20250424-220843.jpg", "/SNAP_20250424-220833.jpg", "/SNAP_20250418-150153.jpg", 
+        "/SNAP_20250513-203658.jpg", "/SNAP_20250513-203217.jpg", "/SNAP_20250501-095748.jpg", "/SNAP_20250428-212235.jpg", 
+        "/SNAP_20250608-170443.jpg", "/SNAP_20250528-144456.jpg", "/SNAP_20250513-204437.jpg", "/SNAP_20250513-203708.jpg", 
+        "/SNAP_20250628-101748.jpg", "/SNAP_20250628-101725.jpg", "/SNAP_20250628-065113.jpg", "/SNAP_20250615-135629.jpg", 
+        "/SNAP_20250705-170042.jpg", "/SNAP_20250629-140124.jpg", "/SNAP_20250629-135442.jpg", "/SNAP_20250628-101756.jpg", 
+        "/SNAP_20250830-204206.jpg", "/SNAP_20250823-141030.jpg", "/SNAP_20250823-141024.jpg", "/SNAP_20250708-173222.jpg", 
+        "/SNAP_20241027-144952.mp4", "/IMG_2316.png"
       ];
       let current = 0;
 
@@ -219,7 +233,6 @@
 
       // 2. Toon de eerste afbeelding na het shufflen
       document.getElementById("slide").src = images[current];
-
 
       function showImage(index) {
         document.getElementById("slide").src = images[index];

@@ -15,43 +15,55 @@
     background: #f2dcdd;
     color: #333;
   }
-    h1 {
-        font-size: 2.5rem;
-        text-align: center;
-        padding-bottom: 0%;
-        font: bold;
-        
-    }
-    p {
-        font-size: 1rem;
-        text-align: center;
-        padding-top: 0%;
-        font-style: italic;
-    }
-    div {
-        margin-top: 10%;
-        text-align: center;
-    }
-    input {
-        margin-top: 0%;
-        padding: 10px;
-        font-size: 1rem;
-        border: 2px solid #DE4C8A;
-        border-radius: 5px;
-    }
-    button {
-      font-style: italic;
-      display: flex;
-      background-color: transparent;
-      border: transparent;
-      font-size: 3rem;
-    }
-    img {
-      display: flexbox;
-    }
-    a {
+  h1 {
+      font-size: 2.5rem;
       text-align: center;
+      padding-bottom: 0%;
+      font-weight: bold;
+      color:#DE4C8A;
+      display: inline-flexbox;
+      animation: pulse 1.5s infinite alternate;
+  }
+  p {
+      font-size: 1rem;
+      text-align: center;
+      padding-top: 0%;
+      font-style: italic;
+  }
+  div {
+      margin-top: 10%;
+      text-align: center;
+  }
+  input {
+      margin-top: 0%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #DE4C8A;
+      border-radius: 5px;
+  }
+  button {
+    font-style: italic;
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    font-size: 3rem;
+  }
+  img {
+    display: flexbox;
+  }
+  a {
+    text-align: center;
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
     }
+    to {
+      transform: scale(0.95); /* Slightly smaller */
+      text-shadow: 0 0 8px rgba(222, 76, 138, 0.6); /* Adds a subtle glow */
+    }
+  }
 
 </style>
 <body>
@@ -74,11 +86,11 @@
 
   <div>
       <a href="/hint3"> <img src="/c76b2496-1ce6-4f7c-8d48-4ee9be82b9ab.jpg" width="300" height="440" style="border-radius: 2%;"> </a>
-      <h1 style="color:#DE4C8A;">1 Jaar samen &heartsuit;</h1>
+      <h1>1 Jaar samen &heartsuit;</h1>
       <b><p id="demo" style="color:#DE4C8A;">1 Oktober 2024 &heartsuit;</p></b>
       <input type="text" onsubmit="test()" onkeypress="onKeyPress(event)" id="secret"></input>
   </div>
   <br>
-  <br>    
+  <br>
 
 </body>
