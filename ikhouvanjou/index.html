@@ -40,8 +40,8 @@
         padding: 0 15px; /* Zorgt voor marge aan de zijkanten op mobiel */
       }
 
-      /* Slideshow styling */
-      #slideshow {
+      /* Slideshow styling is aangepast naar class .slideshow-container */
+      .slideshow-container {
         margin: 20px auto; /* Mobiel-geoptimaliseerd */
         display: flex;
         justify-content: center;
@@ -52,7 +52,7 @@
         border-radius: 15px;
         max-width: 95vw;
       }
-      #slideshow img {
+      .slideshow-container img {
         max-width: calc(95vw - 80px); /* Ruimte vrijhouden voor de knoppen */
         max-height: 60vh; /* Iets lagere max-hoogte op mobiel */
         width: auto;
@@ -61,7 +61,7 @@
         border-radius: 10px;
         border: 5px solid #DE4C8A;
       }
-      #slideshow button {
+      .slideshow-container button {
         font-size: 2rem; /* Kleinere knoppen op mobiel */
         cursor: pointer;
         background: transparent;
@@ -70,7 +70,7 @@
         transition: transform 0.2s ease;
         padding: 10px; /* Groter klikgebied op mobiel */
       }
-      #slideshow button:hover {
+      .slideshow-container button:hover {
         transform: scale(1.1);
       }
 
@@ -123,16 +123,16 @@
           line-height: 1.6rem;
           padding: 0;
         }
-        #slideshow {
+        .slideshow-container {
           margin: 40px auto;
           gap: 20px;
           padding: 15px;
         }
-        #slideshow img {
+        .slideshow-container img {
           max-width: 90vw;
           max-height: 80vh;
         }
-        #slideshow button {
+        .slideshow-container button {
           font-size: 3rem;
           padding: 0;
         }
@@ -162,9 +162,9 @@
     <div class="message">
       <p>
         <b>Liefste Anouk,</b><br><br>
-        Vanaf de eerste dag dat ik je zag, wist ik dat er iets bijzonders aan de hand was. Nu, een jaar later, zijn we hier en ik ben nog verliefder dan toen. Je bent de zon in mijn leven, de lach in mijn dag, en de beste partner die ik me kan wensen.
+        Sinds dat wij begonnen met praten tot nu voelde ik de klik. Uren met je praten en chatten en snappen en mijn moeder en zus op vakantie gek maken als ik weer op mijn bed lag en met jou aan het praten was, of tijdens het lopen, of tijdens het eten. Al vanaf dat we echt begonnen te praten op snap had ik al een idee dat ik je wel leuk vond, maar dat idee werd echt een gevoel die eerste dag dat we elkaar zagen. Varen op de boot met Lucas, Viggo en Bregje, super gezellig en leuk en niet awkard. De avond afgesloten met bruisend, beveiligd door Joris de bodyguard was het een hele gezellige dag geweest. Toen wist ik al eigenlijk: "Ja, ik zie Anouk echt zitten, ze is knap en lief en grappig en mega slim". Toen de verdere weken een paar keer afgesproken, ik bij jou op tennis gezeten en je ouders ontmoet, de eerste echte keer samen door toeval dat bregje en manuel niet kwamen. Maar wel echt toch super geslaagd en een doorslag dat wij comfortabeler bij elkaar werden en meer elkaar leuk leuk begonnen te vinden. Toen de kermis waar het echt begon met de eerste kus als afsluiter van de avond, behalve het nog een uur na bespreken met Lucas bij mij thuis. Toen was het eigenlijk officieel, maar nog niet helemaal natuurlijk. Op 1 oktober eindelijk officeel gemaakt na ongeveer 2 maanden gezelligheid en veel afspreken. Sinds dien hebben we pieken en dalen gehad, maar over het algemeen vind ik ons super samen, alles kunnen uitpraten en elkaar kunnen steunen en ik voel me altijd mega veilig en fijn bij jou. Leukste dates en afspraken samen en met vrienden gehad, weekendje zeeland met de familie, slapen bij joris met nieuwjaar, een paar feestjes en familliedagen van ons beide. Altijd leuk om jou kant van de famillie ook te leren kennen en voelde me vanaf het begin gelijk al mega welkom. Ook samen veel dingen voor het eerst gedaan voor ons allebij en van genoten (hopelijk😉). Veel cadeau's gegeven en gekregen, van jellycat en ketting naar legoset en fotoboek en alles word mega gewaardeerd. Ik hou mega van jou schat en dat zal echt zo blijven, er zullen vast moeilijkheden komen nog maar ik weet zeker dat als we doorgaan zoals nu en altijd blijven praten en kunnen genieten van elkaars knuffels dat het zeker goed komt❤️❤️❤️
         <br><br>
-        Bedankt voor elk moment, elke grap, elke knuffel. Dit is nog maar het begin.
+        Bedankt voor elk moment, elke grap, elke knuffel. Dit is nog maar het begin. Op nog vele jaren te gaan schat!
         <br><br>
         Ik hou van jou, voor altijd.
         <br><br>
@@ -172,15 +172,25 @@
       </p>
     </div>
 
-    <h4>Een slideshow van herinneringen van ons (en gewoon wat leuke foto's &#128513;)</h4>
+    <br> <h4>Van vroeger schattig en klein:</h4>
 
-    <div id="slideshow">
-      <button onclick="prevImage()">&#8592;</button>
-      <img id="slide" src="/IMG_1537.JPG" alt="Slideshow image">
-      <button onclick="nextImage()">&#8594;</button>
+    <div class="slideshow-container">
+      <button onclick="prevImage(1)">&#8592;</button>
+      <img id="slide-1" src="/fotos/placeholder.jpg" alt="Slideshow image 2"> 
+      <button onclick="nextImage(1)">&#8594;</button>
     </div>
 
-    <h4>Dit is het refrein, van het nummer wat ik eigenlijk had willen maken voor jou op de dag dat ik je wilde vragen &#8595;</h4>
+    <h4>Naar nu samen en groot❤️ (En jij ook nog beetje schattig😘):</h4>
+
+    <div class="slideshow-container">
+      <button onclick="prevImage(0)">&#8592;</button>
+      <img id="slide-0" src="/IMG_1577.JPG" alt="Slideshow image 1">
+      <button onclick="nextImage(0)">&#8594;</button>
+    </div>
+
+    
+
+    <h4>En dit is het refrein, van het nummer wat ik eigenlijk had willen maken voor jou op de dag dat ik je wilde vragen &#8595;</h4>
 
     <div class="audio-player">
       <button id="playPause">
@@ -194,8 +204,33 @@
     </audio>
 
     <script>
-      // Slideshow
-      let images = [
+      // Function to shuffle an array (wordt gebruikt voor Slideshow 1)
+      function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+          }
+      }
+
+      // Functie om twee arrays afwisselend samen te voegen
+      function mergeInterleaved(arr1, arr2) {
+          const maxLength = Math.max(arr1.length, arr2.length);
+          const result = [];
+          for (let i = 0; i < maxLength; i++) {
+              if (i < arr1.length) {
+                  result.push(arr1[i]);
+              }
+              if (i < arr2.length) {
+                  result.push(arr2[i]);
+              }
+          }
+          return result;
+      }
+
+
+      // 1. Image Arrays (deze arrays bevatten de paden)
+      let allImages = [
+        // SLIDESHOW 1: Oude Afbeeldingen
         "/970aca3a-384b-483a-8d1c-41d57b28d538.jpg", "/884eb655-83de-469b-a1ae-34a72f5f514f.jpg", "/799a0081-e8be-420f-8d8a-cb402b44da38.jpg", "/17dda1d8-600f-4e55-b98c-c8de9f4077a7.jpg", 
         "/c76b2496-1ce6-4f7c-8d48-4ee9be82b9ab.jpg", "/ba531042-251a-44d5-859d-70e19ba7e2c3.jpg", "/2411955F-48C8-4A38-B333-9DA3F22DA504.jpg", "/4516e0a0-a156-43e4-bd5c-d7ba630f20b4.jpg", 
         "/IMG_1646.jpg", "/IMG_1641.jpg", "/IMG_1577.jpg", "/IMG_1517.JPG", 
@@ -213,40 +248,89 @@
         "/SNAP_20250428-212228.jpg", "/SNAP_20250424-220843.jpg", "/SNAP_20250424-220833.jpg", "/SNAP_20250418-150153.jpg", 
         "/SNAP_20250513-203658.jpg", "/SNAP_20250513-203217.jpg", "/SNAP_20250501-095748.jpg", "/SNAP_20250428-212235.jpg", 
         "/SNAP_20250608-170443.jpg", "/SNAP_20250528-144456.jpg", "/SNAP_20250513-204437.jpg", "/SNAP_20250513-203708.jpg", 
-        "/SNAP_20250628-101748.jpg", "/SNAP_20250628-101725.jpg", "/SNAP_20250628-065113.jpg", "/SNAP_20250615-135629.jpg", 
+        "/SNAP_20250628-101748.jpg", "/SNAP_20250628-101725.jpg", "/SNAP_20250615-135629.jpg", 
         "/SNAP_20250705-170042.jpg", "/SNAP_20250629-140124.jpg", "/SNAP_20250629-135442.jpg", "/SNAP_20250628-101756.jpg", 
         "/SNAP_20250830-204206.jpg", "/SNAP_20250823-141030.jpg", "/SNAP_20250823-141024.jpg", "/SNAP_20250708-173222.jpg", 
-        "/SNAP_20241027-144952.mp4", "/IMG_2316.png"
+        "/SNAP_20241027-144952.mp4", "/IMG_2316.png", "/IMG_1537.JPG"
       ];
-      let current = 0;
-
-      // Fisher-Yates (Knuth) Shuffle Algorithm
-      function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
-          }
-      }
-
-      // 1. Shuffle de afbeeldingen zodra het script wordt uitgevoerd
-      shuffleArray(images);
-
-      // 2. Toon de eerste afbeelding na het shufflen
-      document.getElementById("slide").src = images[current];
-
-      function showImage(index) {
-        document.getElementById("slide").src = images[index];
-      }
-      function nextImage() {
-        current = (current + 1) % images.length;
-        showImage(current);
-      }
-      function prevImage() {
-        current = (current - 1 + images.length) % images.length;
-        showImage(current);
-      }
-
       
+      let newImages = [
+          // Pad start met /foto's/
+          "/foto's/SR_20130130_IMG_8699.jpg", "/foto's/RS_20130123_P1231227.jpg", "/foto's/SR_20110924_IMG_8141.jpg",
+          "/foto's/naamloosIMG_87912018.jpg", "/foto's/NvT-3109.jpg", "/foto's/RS_20120101_P1017225.jpg",
+          "/foto's/naamloosIMG_11012019.jpg", "/foto's/naamloosIMG_42902016.jpg", "/foto's/naamloosIMG_50442017.jpg",
+          "/foto's/naamloos03082016-IMG_67812016.jpg", "/foto's/naamloosdcce5cd6-9d5d-4fcd-baaa-0ae06af516c12019.jpg", "/foto's/naamloosIMG_10932019.jpg",
+          "/foto's/naamloosIMG_12345.jpg", "/foto's/naamloos2018-03-02 18.55.222018.jpg", "/foto's/naamloos-2345.jpg",
+          "/foto's/naamloos2017-09-22 17.39.162017.jpg", "/foto's/naamloos2017-09-29 19.14.272017.jpg", "/foto's/naamloos2017-10-20 13.27.502017.jpg",
+          "/foto's/naamloos2017-07-23 16.16.212017.jpg", "/foto's/naamloos2017-08-10 14.51.592017.jpg", "/foto's/naamloos2017-09-14 18.10.032017.jpg",
+          "/foto's/naamloos2017-01-12 16.00.282017.jpg", "/foto's/naamloos2017-03-01 15.24.092017.jpg", "/foto's/naamloos2017-05-21 17.13.572017.jpg",
+          "/foto's/naamloos-328.jpg", "/foto's/naamloos-482.jpg", "/foto's/naamloos2016-09-11 07.38.162016.jpg",
+          "/foto's/naamloos-221.jpg", "/foto's/naamloos-271.jpg", "/foto's/naamloos-280.jpg",
+          "/foto's/naamloos-90.jpg", "/foto's/naamloos-102.jpg", "/foto's/naamloos-187.jpg",
+          "/foto's/naamloos-70.jpg", "/foto's/naamloos-81.jpg", "/foto's/naamloos-84.jpg",
+          "/foto's/naamloos-29.jpg", "/foto's/naamloos-35.jpg", "/foto's/naamloos-38.jpg",
+          "/foto's/naamloos_20140427_IMG_0276.jpg", "/foto's/naamloos_20140928_IMG_1474.jpg", "/foto's/naamloos4eacb980-ffaa-40cb-ae05-c6fb0cc043a92018.jpg",
+          "/foto's/IMG_2881.jpg", "/foto's/IMG_1716.jpg", "/foto's/naamloos_20140316_P3166039.jpg",
+          "/foto's/IMG_3323-2.jpg", "/foto's/HVT_31082010_IMG_6717.jpg", "/foto's/IMG_1388.jpg",
+          "/foto's/HvT_20140609_IMG_0664.jpg", "/foto's/EM_DSC061042015.jpg", "/foto's/BG_IMG_7654.jpg",
+      ];
+      let secondImages = [
+          // Pad start met /fotos/
+          "/fotos/01926A87-1B7E-4227-B1BA-12961EF87C40.JPG", "/fotos/455A19DB-7F7E-4EEB-A49F-5672B1E1E93B.JPG", "/fotos/30B56E7E-FADB-4C2F-B589-C8C199979A82.jpg",
+          "/fotos/2018USA- (290).JPG", "/fotos/2018USA- (203).JPG", "/fotos/2018USA- (87).JPG",
+          "/fotos/AF4B535D-5378-4C61-99CF-6C6C831675F5.jpg", "/fotos/20529D4E-01D8-4E0F-92CB-379B98435250.JPG", "/fotos/2018USA- (1471).JPG",
+          "/fotos/DSC00811.JPG", "/fotos/DSC00295.JPG", "/fotos/DSC00068.JPG",
+          "/fotos/DSC02061.JPG", "/fotos/DSC01930.JPG", "/fotos/DSC00946.JPG",
+          "/fotos/DSC03306.JPG", "/fotos/DSC02377.JPG", "/fotos/DSC02277.JPG",
+          "/fotos/DSC04368.JPG", "/fotos/DSC04271.JPG", "/fotos/DSC03372.JPG",
+          "/fotos/DSC04694.JPG", "/fotos/DSC04652.JPG", "/fotos/DSC04419.JPG",
+          "/fotos/IMG_1735.JPG", "/fotos/IMG_1136.jpg", "/fotos/E30EB16F-76A5-4051-9C6C-8F8AF19A1DD3.jpg",
+          "/fotos/IMG_3903.JPG", "/fotos/IMG_4895.JPG", "/fotos/IMG_4809.JPG",
+          "/fotos/IMG_5167.jpg", "/fotos/IMG_6548.jpg", "/fotos/IMG_5439.JPG",
+          "/fotos/IMG_7130.jpg", "/fotos/IMG_5438.JPG", "/fotos/IMG_7047.jpg",
+          "/fotos/IMG_7986.jpg", "/fotos/IMG_7750.jpg", "/fotos/IMG_7222.jpg",
+          "/fotos/IMG_8363.jpg", "/fotos/IMG_8318.jpg", "/fotos/IMG_8278.jpg",
+          "/fotos/LRG_DSC00824.JPG", "/fotos/IMG_9176.JPG", "/fotos/IMG_8367.jpg",
+          "/fotos/P1010131.JPG", "/fotos/P1000994.JPG", "/fotos/P1000992.JPG",
+          "/fotos/P5030088.JPG", "/fotos/P5020079.JPG", "/fotos/P1010164.JPG"
+      ];
+
+      // ** NIEUWE STAP: Voeg de arrays afwisselend samen voor de tweede slideshow (index 1) **
+      const mergedImages = mergeInterleaved(newImages, secondImages);
+
+
+      // Array om de gesloten slideshow arrays te bewaren
+      let slideshows = [
+        // Index 0: originele slideshow (blijft geshuffled)
+        { images: allImages, current: 0, elementId: "slide-0" },
+        // Index 1: nieuwe slideshow (is nu de samengevoegde, afwisselende array)
+        { images: mergedImages, current: 0, elementId: "slide-1" }
+      ];
+
+      // Shuffle alleen de eerste array (de tweede is al in de gewenste afwisselende volgorde gezet)
+      shuffleArray(slideshows[0].images);
+      // shuffleArray(slideshows[1].images); <-- NIET MEER NODIG
+
+      // Set initial images
+      document.getElementById(slideshows[0].elementId).src = slideshows[0].images[0];
+      document.getElementById(slideshows[1].elementId).src = slideshows[1].images[0];
+
+
+      function showImage(slideshowIndex, imageIndex) {
+        document.getElementById(slideshows[slideshowIndex].elementId).src = slideshows[slideshowIndex].images[imageIndex];
+      }
+
+      function nextImage(slideshowIndex) {
+        let ss = slideshows[slideshowIndex];
+        ss.current = (ss.current + 1) % ss.images.length;
+        showImage(slideshowIndex, ss.current);
+      }
+
+      function prevImage(slideshowIndex) {
+        let ss = slideshows[slideshowIndex];
+        ss.current = (ss.current - 1 + ss.images.length) % ss.images.length;
+        showImage(slideshowIndex, ss.current);
+      }     
 
       // Audio controls
       const audio = document.getElementById("audio");
