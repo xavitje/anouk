@@ -204,6 +204,11 @@
     </audio>
 
     <script>
+      if (sessionStorage.getItem('isGevlagd') !== 'true') {
+          // Als de vlag niet is gezet, stuur terug naar de inlogpagina
+          window.location.replace('/'); 
+          // 'replace' is beter dan 'href' omdat het de inlogpagina uit de browsergeschiedenis verwijdert
+      }
       // Function to shuffle an array (wordt gebruikt voor Slideshow 1)
       function shuffleArray(array) {
           for (let i = array.length - 1; i > 0; i--) {
